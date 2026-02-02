@@ -72,4 +72,23 @@ export class MessageService {
       })
     );
   };
+  getUserInfo=():Observable<ApiResponseModel>=>{
+        const config: RequestConfigModel = {
+      url: `${env.api.serverUrl}/userinfo`,
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+      },
+  }
+  return this.externalApiService.callExternalApi(config).pipe(
+      mergeMap((response) => {
+        const { data, error } = response;
+
+        return of({
+          data: data ? (data as MessageModel) : null,
+          error,
+        });
+      })
+    );
+}
 }

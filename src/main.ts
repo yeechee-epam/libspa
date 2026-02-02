@@ -17,11 +17,19 @@ bootstrapApplication(AppComponent, {
     provideHttpClient(withInterceptors([authHttpInterceptorFn])),
     provideAuth0({
       ...environment.auth0,
+      cacheLocation: environment.auth0.cacheLocation as 'localstorage',//cast 'cacheLocation' to literal type, else type error
+
       httpInterceptor: {
         allowedList: [
+          {
+            uri: `${environment.api.serverUrl}/books`,
+            httpMethod: 'POST'
+          },
           `${environment.api.serverUrl}/api/messages/admin`,
+          `${environment.api.serverUrl}/userInfo`,
+
           // `${environment.api.serverUrl}/api/messages/protected`,
-          // `${environment.api.serverUrl}/books`,
+          // `${environment.api.serverUrl}/books`, //confirmed that GET /books cannot return books
         ],
       },
     }),

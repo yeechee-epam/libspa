@@ -31,6 +31,11 @@ export class LoginButtonComponent {
 
   handleLogin(): void {
     this.auth.loginWithRedirect({
+      authorizationParams: {
+        prompt: 'login',
+        screen_hint: 'signup'
+      },
+
       appState: {
         target: '/admin',
       //   When my users log in with Auth0 and return to my Angular application, take them from the default callback URL path, /callback, to the "Profile" page, /profile
@@ -38,5 +43,6 @@ export class LoginButtonComponent {
       },
     });
   }
+
 
 }

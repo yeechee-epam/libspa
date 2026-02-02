@@ -33,5 +33,16 @@ export class AdminComponent {
 
   // code$ = this.user$.pipe(map((user) => JSON.stringify(user, null, 2)));
 
+    ngOnInit(): void {
+    this.auth.isAuthenticated$.subscribe(isAuthenticated=>{
+      if(isAuthenticated){
+        this.auth.getAccessTokenSilently()
+        .subscribe(token=>{
+          console.log('jwt access token: ',token);
+        })
+        // send user info to backend /
+      }
+    })
+  }
 
 }
