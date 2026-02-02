@@ -13,6 +13,7 @@ import {PageFooterComponent, PageLayoutComponent} from "@app/shared";
 export class BooksComponent implements OnInit {
   books: BookModel[] = [];
   error: any = null;
+  message=''
 
   constructor(public bookService: BookService) {}
 
@@ -32,6 +33,7 @@ export class BooksComponent implements OnInit {
       }
       if (error) {
         this.error = error;
+        this.message=JSON.stringify(error,null,2)
       }
       console.log('end of ngoninit')
     });

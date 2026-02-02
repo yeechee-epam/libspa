@@ -32,4 +32,36 @@ export class BookService {
             })
         );
     };
+//     createBook(book: BookModel): Observable<ApiResponseModel> {
+//   const config: RequestConfigModel = {
+//     url: `${env.api.serverUrl}/books`,
+//     method: 'POST',
+//     headers: {
+//       'content-type': 'application/json',
+//     },
+//     body: book, // You may need to add 'body' to RequestConfigModel if not present
+//   };
+//   return this.externalApiService.callExternalApi(config).pipe(
+//     mergeMap((response) => {
+//       const { data, error } = response;
+//       return of({ data, error });
+//     })
+//   );
+// }
+createBook(book: Partial<BookModel>): Observable<ApiResponseModel> {
+  const config: RequestConfigModel = {
+    url: `${env.api.serverUrl}/books`,
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: book, //new
+  };
+  return this.externalApiService.callExternalApi(config).pipe(
+    mergeMap((response) => {
+      const { data, error } = response;
+      return of({ data, error });
+    })
+  );
+}
 }

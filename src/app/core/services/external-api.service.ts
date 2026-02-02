@@ -60,7 +60,12 @@ export class ExternalApiService {
 
   callExternalApi = (config: RequestConfigModel): Observable<ApiResponseModel> => {
     return this.http
-      .request<unknown>(config.method, config.url, config.headers)
+      .request<unknown>(config.method, config.url,
+        {
+          body:config.body,
+          headers:config.headers
+        }
+      )
       .pipe(
         mergeMap((data) => {
           return of({

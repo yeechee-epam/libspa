@@ -30,8 +30,19 @@ export const ROUTES: Route[] = [
     path: 'callback',
     loadComponent: () => import('./features/callback/callback.component').then(mod => mod.CallbackComponent)
   },
+    {
+    path: 'create-book',
+    loadComponent:()=>import('./features/books/createbook.component').then(mod=>mod.CreateBookComponent),
+    canActivate:[AuthGuard]
+  },
   {
     path: '**',
     loadComponent: () => import('./features/not-found/not-found.component').then(mod => mod.NotFoundComponent)
   },
+
+  //   {
+  //   path: 'userinfo',
+  //   loadComponent: () => import('./features/userInfo/userInfo.component').then(mod => mod.UserInfoComponent),
+  //   canActivate: [AuthGuard]
+  // },
 ];
