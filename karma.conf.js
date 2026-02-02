@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/spa_angular_typescript_hello-world_standalone-components'),
+      dir: require('path').join(__dirname, './coverage/libspa'),
       subdir: '.',
       reporters: [
         { type: 'html' },

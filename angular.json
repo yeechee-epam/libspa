@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "spa_angular_typescript_hello-world_standalone-components": {
+    "libspa": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/spa_angular_typescript_hello-world_standalone-components",
+            "outputPath": "dist/libspa",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -54,14 +54,14 @@
           "options": {
             "port": 4040,
             "host": "0.0.0.0",
-            "buildTarget": "spa-angular-typescript-hello-world:build"
+            "buildTarget": "libspa:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "spa_angular_typescript_hello-world_standalone-components:build:production"
+              "buildTarget": "libspa:build:production"
             },
             "development": {
-              "buildTarget": "spa_angular_typescript_hello-world_standalone-components:build:development"
+              "buildTarget": "libspa:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -69,7 +69,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "spa_angular_typescript_hello-world_standalone-components:build"
+            "buildTarget": "libspa:build"
           }
         },
         "test": {
