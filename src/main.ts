@@ -20,7 +20,7 @@ bootstrapApplication(AppComponent, {
       httpInterceptor: {
         allowedList: [
           `${environment.api.serverUrl}/api/messages/admin`,
-          `${environment.api.serverUrl}/api/messages/protected`,
+          // `${environment.api.serverUrl}/api/messages/protected`,
           // `${environment.api.serverUrl}/books`,
         ],
       },

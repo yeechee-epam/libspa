@@ -32,4 +32,6 @@ export class AdminComponent {
   // title = 'User Profile Object';
 
   // code$ = this.user$.pipe(map((user) => JSON.stringify(user, null, 2)));
+
+
 }
