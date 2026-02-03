@@ -1,0 +1,20 @@
+<app-page-layout>
+  <div class="content-layout" *ngIf="book">
+    <h1 class="content__title">{{ book.name }}</h1>
+    <p>Author: {{ book.authorName }}</p>
+
+    <button
+      *ngIf="isAdmin"
+      (click)="toggleRecommend()"
+      style="font-size: 24px; border: none; background: none; cursor: pointer"
+      aria-label="Toggle recommendation"
+    >
+      <span *ngIf="book.recommendedByMe">❤️</span>
+      <span *ngIf="!book.recommendedByMe">🤍</span>
+    </button>
+  </div>
+
+  <div *ngIf="error">
+    {{ error.message }}
+  </div>
+</app-page-layout>

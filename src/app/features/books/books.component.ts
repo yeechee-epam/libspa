@@ -3,12 +3,13 @@ import { BookService } from '@app/core';
 import { BookModel } from '@app/core';
 import {CommonModule, NgForOf} from "@angular/common";
 import {PageFooterComponent, PageLayoutComponent} from "@app/shared";
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
   standalone: true,
-  imports: [PageLayoutComponent,CommonModule],
+  imports: [PageLayoutComponent,CommonModule, RouterModule],
 })
 export class BooksComponent implements OnInit {
   books: BookModel[] = [];
