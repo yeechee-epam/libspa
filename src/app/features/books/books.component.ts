@@ -17,26 +17,49 @@ export class BooksComponent implements OnInit {
   message=''
 
   constructor(public bookService: BookService) {}
+// non-paginated
+  // ngOnInit(): void {
+  //   console.log('ngOnInit running')
+  //   this.bookService.getBooks().subscribe((response:any) => {
 
+
+  //     const { data, error } = response;
+  //     if (data) {
+
+  //       // console.log(data.content)
+  //       this.books=data.content;
+
+  //       // this.books = data as BookModel[];
+
+  //     }
+  //     if (error) {
+  //       this.error = error;
+  //       this.message=JSON.stringify(error,null,2)
+  //     }
+  //     console.log('end of ngoninit')
+  //   });
+  // }
+  // paginated
   ngOnInit(): void {
-    console.log('ngOnInit running')
-    this.bookService.getBooks().subscribe((response:any) => {
-
-
-      const { data, error } = response;
-      if (data) {
-
-        // console.log(data.content)
-        this.books=data.content;
-
-        // this.books = data as BookModel[];
-
+  console.log('ngOnInit running');
+  this.bookService.getBooks().subscribe({
+    next: (response: any) => {
+      console.log('raw resp: ',response);
+      // if (response && response.content) {
+      //   this.books = response.content; // array of books
+      if(response?.data?.content){
+        this.books=response.data.content;
+      } else {
+        this.books = [];
       }
-      if (error) {
-        this.error = error;
-        this.message=JSON.stringify(error,null,2)
-      }
-      console.log('end of ngoninit')
-    });
-  }
+      console.log('Books loaded:', this.books);
+    },
+    error: (err) => {
+      this.error = err;
+      this.message = JSON.stringify(err, null, 2);
+      console.error('Error fetching books:', err);
+    }
+  });
+}
+
 }
