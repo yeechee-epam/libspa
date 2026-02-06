@@ -16,7 +16,9 @@
 
         <ul>
             <li *ngFor="let book of books">
+               <a [routerLink]="['/books', book.id]">
                 {{ book.name }} by {{ book.authorName }}
+                </a>
             </li>
         </ul>
     </div>

@@ -5,4 +5,10 @@ export interface BookModel {
     name: string;
     authorName: string;
     // author: AuthorModel;
+
+    // authorLink: string;
+    // authorId: number;
+    
+    // recommended by currently logged in admin or not
+    recommendedByMe?:boolean;
 }

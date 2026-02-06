@@ -21,6 +21,18 @@ bootstrapApplication(AppComponent, {
 
       httpInterceptor: {
         allowedList: [
+          // only admin (signed in) can toggle recommend on or off
+          // {
+          //   uri: `${environment.api.serverUrl}/books/*/recommend`,
+          //   httpMethod: 'POST'
+          // },
+          // only admin (signed in) can post to books
+    {
+      uriMatcher: (uri: string) =>
+        uri.startsWith(`${environment.api.serverUrl}/books/`) &&
+        uri.endsWith('/recommend'),
+      httpMethod: 'POST',
+    },
           {
             uri: `${environment.api.serverUrl}/books`,
             httpMethod: 'POST'

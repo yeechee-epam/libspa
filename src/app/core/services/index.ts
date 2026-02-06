@@ -1,4 +1,5 @@
 export * from './external-api.service';
 export * from './message.service';
 export * from './book.service'
+export * from './recommendation.service'
 // export * from './home.service'

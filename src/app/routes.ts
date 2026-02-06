@@ -16,6 +16,13 @@ export const ROUTES: Route[] = [
     path: 'books',
     loadComponent: () => import('./features/books/books.component').then(mod => mod.BooksComponent)
   },
+  {
+  path: 'books/:id',
+  loadComponent: () =>
+    import('./features/books/book-detail.component')
+      .then(m => m.BookDetailComponent)
+},
+
   // {
   //   path: 'protected',
   //   loadComponent: () => import('./features/protected/protected.component').then(mod => mod.ProtectedComponent),
