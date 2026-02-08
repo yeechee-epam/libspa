@@ -1,7 +1,10 @@
 const { writeFile } = require('fs');
 const path = require('path');
+// const dotenv = require('dotenv');
+// dotenv.config({ path: '.env.prod' });
 
-const targetPath = './src/environments/environment.prod.ts';
+// const targetPath = './src/environments/environment.prod.ts';
+const targetPath = path.resolve('./src/environments/environment.prod.ts');
 
 const envConfigFile = `export const environment = {
   production: true,
@@ -26,5 +29,8 @@ writeFile(targetPath, envConfigFile, err => {
   if (err) {
     console.error(err);
     process.exit(1);
+  } else {
+    console.log('Environment file written successfully!');
+    console.log('Final environment:\n', envConfigFile); // <-- fixed
   }
 });
