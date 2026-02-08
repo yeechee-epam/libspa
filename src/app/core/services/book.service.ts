@@ -536,7 +536,7 @@ export class BookService {
         const headers: { [key: string]: string } = { 'content-type': 'application/json' };
         if (isAuth) {
           return this.auth.getAccessTokenSilently({
-            authorizationParams: { audience: 'http://localhost:6060' }
+            authorizationParams: { audience: env.auth0.authorizationParams.audience }
           }).pipe(
             mergeMap(token => {
               headers['Authorization'] = `Bearer ${token}`;
@@ -561,7 +561,7 @@ export class BookService {
 
   toggleRecommend(id: number): Observable<ApiResponseModel> {
     return this.auth.getAccessTokenSilently({
-      authorizationParams: { audience: 'http://localhost:6060' }
+      authorizationParams: { audience: env.auth0.authorizationParams.audience }
     }).pipe(
       mergeMap(token => {
         const config: RequestConfigModel = {
@@ -594,7 +594,7 @@ export class BookService {
 
   getRecommendedBooks(): Observable<BookModel[]> {
     return this.auth.getAccessTokenSilently({
-      authorizationParams: { audience: 'http://localhost:6060' }
+      authorizationParams: { audience: env.auth0.authorizationParams.audience }
     }).pipe(
       mergeMap(token => {
         const config: RequestConfigModel = {

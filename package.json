@@ -4,8 +4,11 @@
   "scripts": {
     "ng": "ng",
     "env": "ts-node set-env.ts",
+    "env:prod": "node set-env.prod.ts",
     "start": "npm run env && ng serve",
     "build": "npm run env && ng build",
+    "build:prod": "npm run env:prod && ng build --configuration production",
+
     "watch": "ng build --watch --configuration development",
     "api": "json-server --host 0.0.0.0 --port 6060 --watch json-server/db.json --routes json-server/routes.json"
   },
