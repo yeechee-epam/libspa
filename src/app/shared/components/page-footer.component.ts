@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Auth0ResourceModel } from '@app/core';
 import { PageFooterHyperlinkComponent } from './page-footer-hyperlink.component';
-
+import {environment} from 'src/environments/environment';
 @Component({
   standalone: true,
   imports: [CommonModule, PageFooterHyperlinkComponent],
@@ -75,7 +75,7 @@ import { PageFooterHyperlinkComponent } from './page-footer-hyperlink.component'
 export class PageFooterComponent {
   resourceList: Auth0ResourceModel[] = [
     {
-      path: 'http://localhost:4040',
+      path: environment.api.serverUrl,
       label: 'Home',
     },
     // {

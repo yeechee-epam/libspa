@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import {environment} from 'src/environments/environment';
 @Component({
   standalone: true,
   selector: 'app-hero-banner',
@@ -15,7 +15,7 @@ import { Component } from '@angular/core';
       <a
         id="code-sample-link"
         class="button button--secondary"
-        href="http://localhost:4040/books"
+        href="booksUrl"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -26,4 +26,5 @@ import { Component } from '@angular/core';
 })
 export class HeroBannerComponent {
   logo = 'https://cdn.auth0.com/blog/developer-hub/angular-logo.svg';
+  booksUrl = environment.api.serverUrl + '/books';
 }
