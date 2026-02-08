@@ -8,6 +8,8 @@ const targetPath = path.resolve('./src/environments/environment.prod.ts');
 
 const envConfigFile = `export const environment = {
   production: true,
+  frontendUrl: '${process.env.FRONTEND_URL||'https://library-cru.xyz'}',
+  
   auth0: {
     domain: '${process.env.AUTH0_DOMAIN}',
     clientId: '${process.env.AUTH0_CLIENT_ID}',

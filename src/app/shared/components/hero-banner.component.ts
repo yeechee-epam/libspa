@@ -26,5 +26,5 @@ import {environment} from 'src/environments/environment';
 })
 export class HeroBannerComponent {
   logo = 'https://cdn.auth0.com/blog/developer-hub/angular-logo.svg';
-  booksUrl = environment.api.serverUrl + '/books';
+  booksUrl = `${environment.frontendUrl}/books`;
 }

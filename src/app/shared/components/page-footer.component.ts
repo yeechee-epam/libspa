@@ -75,7 +75,7 @@ import {environment} from 'src/environments/environment';
 export class PageFooterComponent {
   resourceList: Auth0ResourceModel[] = [
     {
-      path: environment.api.serverUrl,
+      path: environment.frontendUrl,
       label: 'Home',
     },
     // {
