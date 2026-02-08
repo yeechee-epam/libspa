@@ -1,3 +1,5 @@
+console.log('ENVIRONMENT URL', environment.api.serverUrl);
+
 export const environment = {
   production: false,
   auth0: {
