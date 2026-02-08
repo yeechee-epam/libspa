@@ -15,7 +15,7 @@ import {environment} from 'src/environments/environment';
       <a
         id="code-sample-link"
         class="button button--secondary"
-        href="booksUrl"
+        [href]="booksUrl"
         target="_blank"
         rel="noopener noreferrer"
       >
