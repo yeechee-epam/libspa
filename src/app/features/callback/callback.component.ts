@@ -54,6 +54,7 @@ export class CallbackComponent implements OnInit {
   private router = inject(Router);
 
   async ngOnInit() {
+    console.log("callback component loaded")
     try {
       const result = await this.auth.handleRedirectCallback().toPromise();
 
