@@ -37,7 +37,7 @@ export class LoginButtonComponent {
       },
 
       appState: {
-        target: '/',
+        target: '/admin',
       //   When my users log in with Auth0 and return to my Angular application, take them from the default callback URL path, /callback, to the "Admin" page, /admin
         //If you don't specify this appState.returnTo option, your users will be redirected by default to the / path after they log in.
       },
