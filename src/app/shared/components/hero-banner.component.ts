@@ -6,8 +6,8 @@ import {environment} from 'src/environments/environment';
   template: `
     <div class="hero-banner hero-banner--aqua-emerald">
       <div class="hero-banner__logo">
-        <img class="hero-banner__image" [src]="logo" alt="Angular logo" />
-      </div>
+        <img class="hero-banner__image" [src]="logo" alt="Library logo" />
+     </div>
       <h1 class="hero-banner__headline">Welcome</h1>
       <p class="hero-banner__description">
         Browse our books!
@@ -25,6 +25,6 @@ import {environment} from 'src/environments/environment';
   `,
 })
 export class HeroBannerComponent {
-  logo = 'https://cdn.auth0.com/blog/developer-hub/angular-logo.svg';
+  logo = 'assets/open-book.png';//angular automatically serves files in src/assets/ so no need incl ../
   booksUrl = `${environment.frontendUrl}/books`;
 }
